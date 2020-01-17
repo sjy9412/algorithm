@@ -1,8 +1,8 @@
 import numpy as np
 
 # 오차제곱합
-def sum_squares_error(y, t):
-    return 0.5 * np.sum((y-t)**2)
+# def sum_squares_error(y, t):
+#     return 0.5 * np.sum((y-t)**2)
 
 # 교차 엔트로피 오차(미니 배치 + 원-핫 코딩)
 # def cross_entropy_error(y, t):
@@ -29,11 +29,9 @@ class TwoLayerNet:
     def __init__(self, input_size, hidden_size, output_size, weight_init_std=0.01):
         # 가중치 초기화
         self.params = {}
-        self.params['W1'] = weight_init_std * \
-                            np.random.randn(input_size, hidden_size)
+        self.params['W1'] = weight_init_std * np.random.randn(input_size, hidden_size)
         self.params['b1'] = np.zeros(hidden_size)
-        self.params['W2'] = weight_init_std * \
-                            np.random.randn(hidden_size, output_size)
+        self.params['W2'] = weight_init_std * np.random.randn(hidden_size, output_size)
         self.params['b2'] = np.zeros(output_size)
 
     def predict(self, x):
