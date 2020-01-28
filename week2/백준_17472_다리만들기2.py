@@ -6,19 +6,22 @@ def MST(s):
     Q = PriorityQueue()
     Q.put((0, s))
     key[0] = 0
-    while not Q.empty():
+    for _ in range(l):
         d, u = Q.get()
+        print((d, u))
         visit[u] = 1
         for i in range(len(node[u])):
-            x, y = node[u][i][0], node[u][i][1]
+            x, y = node[u][i]
+            print(x, y)
             for k in range(4):
                 cnt = 0
                 tx, ty = x + dx[k], y + dy[k]
                 while -1 < tx < N and -1 < ty < M:
-                    if board[tx][ty]:
-                        if key[board[tx][ty] - 2] > cnt > 1 and not visit[board[tx][ty] - 2]:
-                            key[board[tx][ty] - 2] = cnt
-                            Q.put((cnt, board[tx][ty] - 2))
+                    idx = board[tx][ty]
+                    if idx:
+                        if key[idx - 2] > cnt > 1 and not visit[idx - 2]:
+                            key[idx - 2] = cnt
+                            Q.put((cnt, idx - 2))
                         break
                     tx += dx[k]
                     ty += dy[k]
