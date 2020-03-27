@@ -39,6 +39,7 @@ def back(n, cnt):
                         board[x][y] = tmp[x][y]
                 break
 
+
 T = int(input())
 for tc in range(1, T + 1):
     N, W, H = map(int, input().split())
